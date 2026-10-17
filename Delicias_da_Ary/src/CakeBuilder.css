@@ -1,0 +1,973 @@
+/* Cake choices and ordering information transcribed from the supplied references. */
+.cake-builder-section {
+  background: #f2f0ed;
+  border-block: 1px solid #e7e4df;
+  position: relative;
+}
+.cake-builder-section .section-heading > p {
+  max-width: 365px;
+}
+.cake-builder-section h2 em {
+  color: #a67a56;
+}
+.cake-builder-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 0.85fr;
+  gap: 55px;
+  align-items: start;
+  margin-top: 40px;
+}
+.cake-builder-controls {
+  background: #fffaf6;
+  border: 1px solid #dfdad4;
+  padding: 32px 30px;
+  border-radius: 7px;
+}
+.cake-fieldset {
+  margin: 0;
+  padding: 0 0 28px;
+  border-bottom: 1px solid #e6e3de;
+}
+.cake-fieldset + .cake-fieldset {
+  padding-top: 27px;
+}
+.cake-fieldset:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+.cake-fieldset legend {
+  float: left;
+  width: 100%;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 27px;
+  line-height: 1.1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 19px;
+  letter-spacing: -0.4px;
+}
+.cake-fieldset legend + * {
+  clear: both;
+}
+.cake-fieldset legend > span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #a67a56;
+  color: #fffaf5;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 9px;
+  letter-spacing: 0;
+}
+.mass-options {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 9px;
+}
+.mass-option {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 50px;
+  padding: 12px 10px;
+  border: 1px solid #dbd4cc;
+  border-radius: 4px;
+  font-size: 11px;
+  cursor: pointer;
+  background: #fffdf8;
+  transition:
+    background 0.2s,
+    border-color 0.2s;
+}
+.mass-option input,
+.filling-option input,
+.cake-size-option input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+.mass-option:focus-within,
+.filling-option:focus-within,
+.cake-size-option:focus-within {
+  outline: 3px solid #a67a56;
+  outline-offset: 3px;
+}
+.mass-option.is-selected,
+.filling-option.is-selected,
+.cake-size-option.is-selected {
+  background: #f2eee9;
+  border-color: #a67a56;
+  color: #825d3f;
+}
+.mass-dot {
+  width: 15px;
+  height: 15px;
+  flex: none;
+  border-radius: 50%;
+  border: 1px solid #68534122;
+}
+.mass-option > svg {
+  margin-left: auto;
+  flex: none;
+}
+.builder-reset {
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #c5b6a5;
+  font-size: 9px;
+  padding: 7px 0;
+  margin-top: 12px;
+  min-height: 33px;
+  color: #8f7c6d;
+}
+.builder-reset:hover {
+  color: #845f41;
+}
+.cake-field-help {
+  font-size: 10px;
+  color: #847a72;
+  line-height: 1.75;
+  margin-bottom: 16px;
+  clear: both;
+}
+.filling-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+.filling-option {
+  position: relative;
+  display: flex;
+  gap: 9px;
+  align-items: center;
+  min-height: 43px;
+  border: 1px solid #e0ddd8;
+  border-radius: 4px;
+  padding: 10px 11px;
+  background: #fffdf8;
+  cursor: pointer;
+  font-size: 10px;
+  line-height: 1.5;
+  transition:
+    background 0.2s,
+    border-color 0.2s;
+}
+.filling-check {
+  width: 19px;
+  height: 19px;
+  border: 1px solid #d7d0c9;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  color: #a08c7c;
+}
+.filling-option.is-selected .filling-check {
+  background: #a67a56;
+  border-color: #a67a56;
+  color: #fff;
+}
+.filling-counter {
+  font-size: 8px;
+  color: #938478;
+  margin-top: 12px;
+  line-height: 1.6;
+}
+.builder-notice {
+  font-size: 10px;
+  color: #845f41;
+  background: #f2efeb;
+  padding: 12px;
+  margin-top: 11px;
+  line-height: 1.7;
+  border-radius: 3px;
+}
+.cake-size-options {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 9px;
+  margin-bottom: 13px;
+}
+.cake-size-option {
+  position: relative;
+  min-height: 108px;
+  padding: 12px 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 6px;
+  text-align: center;
+  border: 1px solid #dbd4cc;
+  border-radius: 4px;
+  cursor: pointer;
+  background: #fffdf8;
+  transition:
+    background 0.2s,
+    border-color 0.2s;
+}
+.cake-size-option .size-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 29px;
+  line-height: 1;
+}
+.size-diameter {
+  font-size: 10px;
+  font-weight: 500;
+}
+.size-yield {
+  font-size: 8px;
+  color: #8b8178;
+  line-height: 1.4;
+}
+.cake-size-option > svg {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 12px;
+  height: 12px;
+  color: #a67a56;
+}
+.cake-builder-visual {
+  position: sticky;
+  top: 110px;
+  border: 1px solid #d9cfc4;
+  background: #ebe7e2;
+  border-radius: 7px;
+  overflow: hidden;
+  padding: 26px;
+  box-shadow: 0 15px 50px #6c523d09;
+}
+.cake-visual-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  color: #a67a56;
+}
+.cake-visual-header .eyebrow {
+  margin: 0;
+  font-size: 8px;
+  letter-spacing: 1.5px;
+  color: #936c4d;
+}
+.cake-illustration {
+  height: 300px;
+  position: relative;
+  margin: 2px -26px 8px;
+  background: radial-gradient(ellipse at center, #fff7f0a8, transparent 70%);
+  overflow: hidden;
+}
+.cake-drawing {
+  width: 230px;
+  height: 225px;
+  position: absolute;
+  bottom: 41px;
+  left: 50%;
+  transform: translateX(-50%) scale(var(--cake-scale, 1));
+  transform-origin: center bottom;
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  filter: drop-shadow(0 16px 14px #624b3919);
+}
+.cake-plate {
+  position: absolute;
+  width: 280px;
+  height: 37px;
+  left: -25px;
+  bottom: 0;
+  border-radius: 50%;
+  background: linear-gradient(#fffef6, #e9ded6);
+  border-bottom: 5px solid #ddd0c7;
+}
+.cake-layer {
+  position: absolute;
+  width: 230px;
+  height: 56px;
+  left: 0;
+  background: linear-gradient(90deg, #ffffff16, transparent 45%, #00000012), var(--sponge);
+  border-radius: 0 0 48% 48% / 0 0 12px 12px;
+  transition: background 0.35s;
+}
+.cake-layer:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: -10px;
+  height: 21px;
+  width: 100%;
+  border-radius: 50%;
+  background: var(--sponge-top);
+  transition: background 0.35s;
+}
+.layer-bottom {
+  bottom: 18px;
+}
+.layer-middle {
+  bottom: 85px;
+}
+.layer-top {
+  bottom: 152px;
+}
+.cake-filling {
+  position: absolute;
+  width: 230px;
+  height: 17px;
+  left: 0;
+  border-radius: 0 0 48% 48% / 0 0 6px 6px;
+  box-shadow: inset 0 -3px #00000007;
+  transition: background 0.35s;
+}
+.filling-bottom {
+  bottom: 71px;
+  background: var(--filling-one);
+}
+.filling-top {
+  bottom: 138px;
+  background: var(--filling-two);
+}
+.cake-cap {
+  position: absolute;
+  width: 230px;
+  height: 25px;
+  left: 0;
+  bottom: 196px;
+  border-radius: 50%;
+  background: #fff0dd;
+  border: 1px solid #fff9f0;
+  box-shadow: 0 3px 0 #e8d2bf;
+}
+.cake-doodle-spark {
+  position: absolute;
+  top: 45px;
+  right: 30px;
+  color: #b49b87;
+  transform: rotate(8deg);
+}
+.cake-illustration-label {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 7px;
+  text-align: center;
+  font-size: 8px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #a08f81;
+}
+.cake-combination h3 {
+  font-size: 32px;
+  letter-spacing: -0.6px;
+  line-height: 1.05;
+  margin-bottom: 19px;
+}
+.cake-combination dl,
+.contact-cake-summary dl {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+.cake-combination dl > div {
+  display: grid;
+  grid-template-columns: 65px 1fr;
+  gap: 14px;
+  align-items: baseline;
+}
+.cake-combination dt {
+  font-size: 9px;
+  color: #908276;
+}
+.cake-combination dd {
+  font-size: 11px;
+  line-height: 1.7;
+  margin: 0;
+  font-weight: 500;
+}
+.cake-visual-note {
+  font-size: 9px;
+  line-height: 1.8;
+  color: #8a7c71;
+  margin: 23px 0 18px;
+  padding-top: 17px;
+  border-top: 1px solid #d8cdc2;
+}
+.cake-continue {
+  width: 100%;
+  font-size: 10px;
+  gap: 10px;
+  padding-inline: 13px;
+  background: #a67a56;
+}
+.cake-continue:hover {
+  background: #896344;
+}
+.cake-small-note {
+  font-size: 8px;
+  text-align: center;
+  color: #908174;
+  line-height: 1.6;
+  margin-top: 11px;
+}
+.cake-builder-bow {
+  display: none;
+}
+.order-guidelines {
+  padding-block: 80px 70px;
+  border-bottom: 1px solid var(--line);
+}
+.guidelines-heading {
+  margin-bottom: 33px;
+}
+.guidelines-heading h2 {
+  font-size: 55px;
+}
+.guidelines-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.1fr;
+  gap: 20px;
+}
+.guideline-card {
+  border: 1px solid #ddd8d2;
+  background: #f9f6f3;
+  padding: 30px;
+  border-radius: 5px;
+}
+.guideline-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 67px;
+  line-height: 1;
+  color: #a67a56;
+  letter-spacing: -2px;
+  display: block;
+  min-height: 73px;
+}
+.guideline-number small {
+  font-size: 29px;
+  letter-spacing: -0.8px;
+  margin-left: 3px;
+}
+.guideline-card h3 {
+  font-size: 29px;
+  line-height: 1.05;
+  letter-spacing: -0.5px;
+  margin-top: 19px;
+  margin-bottom: 17px;
+}
+.guideline-card p {
+  font-size: 11px;
+  color: #887b70;
+  line-height: 1.8;
+}
+.guideline-card strong {
+  color: #6e5c4d;
+  font-weight: 500;
+}
+.guideline-symbol {
+  height: 73px;
+  display: flex;
+  align-items: center;
+  color: #a67a56;
+}
+.guideline-symbol svg {
+  width: 46px;
+  height: 46px;
+}
+.payment-pills {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+  margin-top: 17px;
+}
+.payment-pills > span {
+  font-size: 9px;
+  padding: 7px 9px;
+  background: #fffaf7;
+  border: 1px solid #dfd6cd;
+  border-radius: 20px;
+  line-height: 1.5;
+}
+.guideline-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  margin-top: 26px;
+}
+.guideline-details details {
+  border-block: 1px solid #e0ddd8;
+}
+.guideline-details summary {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  align-items: center;
+  cursor: pointer;
+  font-size: 11px;
+  list-style: none;
+  min-height: 56px;
+  line-height: 1.6;
+  padding: 15px 2px;
+}
+.guideline-details summary::-webkit-details-marker {
+  display: none;
+}
+.guideline-details summary svg {
+  flex: none;
+  transition: transform 0.2s;
+}
+.guideline-details details[open] summary svg {
+  transform: rotate(45deg);
+}
+.guideline-details details p {
+  font-size: 10px;
+  color: #8b8178;
+  line-height: 1.8;
+  padding: 0 20px 19px 2px;
+}
+.contact-cake-summary {
+  margin-top: 19px;
+  padding: 18px 0;
+  border-block: 1px solid #d7cdc3;
+}
+.contact-cake-summary dl > div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.contact-cake-summary dt {
+  font-size: 8px;
+  color: #918276;
+}
+.contact-cake-summary dd {
+  font-size: 10px;
+  line-height: 1.7;
+  margin: 0;
+}
+.contact-cake-summary .text-link {
+  font-size: 9px;
+  margin-top: 13px;
+  gap: 8px;
+}
+@media (max-width: 1150px) {
+  .cake-builder-layout {
+    gap: 30px;
+    grid-template-columns: 1.2fr 0.9fr;
+  }
+  .cake-builder-controls {
+    padding: 28px 24px;
+  }
+  .cake-builder-visual {
+    padding: 23px;
+  }
+  .mass-options {
+    gap: 7px;
+  }
+  .mass-option {
+    gap: 6px;
+    font-size: 10px;
+    padding-inline: 8px;
+  }
+  .mass-dot {
+    width: 12px;
+    height: 12px;
+  }
+  .mass-option > svg {
+    display: none;
+  }
+  .cake-size-options {
+    gap: 7px;
+  }
+  .cake-size-option {
+    min-height: 107px;
+  }
+  .size-yield {
+    font-size: 7px;
+  }
+  .cake-fieldset legend {
+    font-size: 25px;
+  }
+  .guideline-card {
+    padding: 25px;
+  }
+  .guideline-card h3 {
+    font-size: 27px;
+  }
+  .guideline-card p {
+    font-size: 10px;
+  }
+  .guidelines-grid {
+    gap: 17px;
+  }
+}
+@media (max-width: 899px) {
+  .cake-builder-layout {
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 23px;
+  }
+  .cake-builder-controls {
+    padding: 25px 21px;
+  }
+  .mass-options {
+    grid-template-columns: 1fr;
+  }
+  .mass-option {
+    font-size: 11px;
+    min-height: 44px;
+  }
+  .mass-option > svg {
+    display: block;
+  }
+  .mass-dot {
+    width: 14px;
+    height: 14px;
+  }
+  .cake-size-options {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .filling-options {
+    grid-template-columns: 1fr;
+  }
+  .filling-option {
+    font-size: 10px;
+  }
+  .cake-builder-visual {
+    top: 95px;
+    padding: 21px;
+  }
+  .cake-combination dl > div {
+    grid-template-columns: 1fr;
+    gap: 3px;
+  }
+  .cake-combination h3 {
+    font-size: 30px;
+  }
+  .cake-continue {
+    font-size: 9px;
+    gap: 8px;
+    line-height: 1.6;
+  }
+  .cake-illustration {
+    margin-inline: -21px;
+    height: 275px;
+  }
+  .cake-drawing {
+    width: 230px;
+    bottom: 35px;
+    transform: translateX(-50%) scale(calc(var(--cake-scale, 1) * 0.87));
+  }
+  .cake-doodle-spark {
+    right: 15px;
+    top: 35px;
+  }
+  .cake-visual-header .eyebrow {
+    font-size: 7px;
+    letter-spacing: 1px;
+  }
+  .guideline-card {
+    padding: 23px 19px;
+  }
+  .guideline-card h3 {
+    font-size: 25px;
+  }
+  .guidelines-heading h2 {
+    font-size: 48px;
+  }
+  .payment-pills > span {
+    font-size: 8px;
+    padding: 6px 8px;
+  }
+  .guideline-number {
+    font-size: 60px;
+    min-height: 65px;
+  }
+  .guideline-symbol {
+    height: 65px;
+  }
+  .guidelines-grid {
+    gap: 14px;
+  }
+  .guideline-details {
+    gap: 23px;
+  }
+  .guideline-details summary {
+    font-size: 10px;
+  }
+}
+@media (max-width: 640px) {
+  .cake-builder-section {
+    padding-block: 62px;
+  }
+  .cake-builder-section .section-heading h2 {
+    font-size: 43px;
+  }
+  .cake-builder-section .section-heading > p {
+    font-size: 11px;
+    margin-top: 20px;
+  }
+  .cake-builder-layout {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    margin-top: 28px;
+  }
+  .cake-builder-controls {
+    padding: 27px 21px;
+  }
+  .cake-fieldset legend {
+    font-size: 27px;
+    margin-bottom: 20px;
+    gap: 10px;
+  }
+  .cake-fieldset legend > span {
+    width: 26px;
+    height: 26px;
+    font-size: 8px;
+  }
+  .mass-options {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 7px;
+  }
+  .mass-option {
+    padding: 13px 6px;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+    min-height: 76px;
+    font-size: 10px;
+  }
+  .mass-option > svg {
+    display: none;
+  }
+  .mass-dot {
+    width: 18px;
+    height: 18px;
+  }
+  .filling-options {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+  .filling-option {
+    font-size: 10px;
+    padding: 10px 8px;
+    gap: 7px;
+    min-height: 45px;
+  }
+  .filling-check {
+    width: 17px;
+    height: 17px;
+  }
+  .filling-check svg {
+    width: 12px;
+    height: 12px;
+  }
+  .cake-field-help {
+    font-size: 10px;
+    margin-bottom: 16px;
+  }
+  .cake-fieldset {
+    padding-bottom: 25px;
+  }
+  .cake-fieldset + .cake-fieldset {
+    padding-top: 25px;
+  }
+  .builder-reset {
+    font-size: 9px;
+    margin-top: 12px;
+    line-height: 1.7;
+  }
+  .cake-size-options {
+    grid-template-columns: 1fr 1fr;
+    gap: 9px;
+  }
+  .cake-size-option {
+    min-height: 102px;
+    gap: 7px;
+  }
+  .cake-size-option .size-name {
+    font-size: 31px;
+  }
+  .size-diameter {
+    font-size: 10px;
+  }
+  .size-yield {
+    font-size: 9px;
+  }
+  .cake-size-option > svg {
+    width: 14px;
+    height: 14px;
+    top: 9px;
+    right: 10px;
+  }
+  .cake-builder-visual {
+    position: relative;
+    top: auto;
+    padding: 26px 24px;
+  }
+  .cake-visual-header .eyebrow {
+    font-size: 8px;
+    letter-spacing: 1.3px;
+  }
+  .cake-illustration {
+    height: 286px;
+    margin-inline: -24px;
+    margin-top: 0;
+  }
+  .cake-drawing {
+    bottom: 35px;
+    transform: translateX(-50%) scale(calc(var(--cake-scale, 1) * 0.94));
+  }
+  .cake-combination h3 {
+    font-size: 34px;
+  }
+  .cake-combination dl > div {
+    grid-template-columns: 60px 1fr;
+    gap: 13px;
+  }
+  .cake-combination dt {
+    font-size: 9px;
+  }
+  .cake-combination dd {
+    font-size: 11px;
+  }
+  .cake-visual-note {
+    font-size: 9px;
+    margin-top: 20px;
+  }
+  .cake-continue {
+    font-size: 10px;
+    min-height: 53px;
+    gap: 10px;
+  }
+  .cake-small-note {
+    font-size: 8px;
+  }
+  .order-guidelines {
+    padding-block: 58px 52px;
+  }
+  .guidelines-heading h2 {
+    font-size: 46px;
+  }
+  .guidelines-heading {
+    margin-bottom: 27px;
+  }
+  .guidelines-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  .guideline-card {
+    position: relative;
+    padding: 26px 23px 26px 103px;
+    min-height: 150px;
+  }
+  .guideline-number {
+    position: absolute;
+    left: 22px;
+    top: 25px;
+    font-size: 56px;
+    letter-spacing: -2px;
+    min-height: 0;
+  }
+  .guideline-number small {
+    font-size: 20px;
+    display: block;
+    letter-spacing: -0.5px;
+    margin-top: 0;
+    margin-left: 5px;
+  }
+  .guideline-card:nth-child(2) .guideline-number small {
+    display: inline;
+    margin-left: 0;
+    font-size: 24px;
+  }
+  .guideline-card h3 {
+    font-size: 28px;
+    margin: 0 0 13px;
+    line-height: 1.05;
+  }
+  .guideline-card p {
+    font-size: 10px;
+  }
+  .guideline-symbol {
+    position: absolute;
+    top: 29px;
+    left: 27px;
+    height: auto;
+  }
+  .guideline-symbol svg {
+    width: 38px;
+    height: 38px;
+  }
+  .payment-pills {
+    gap: 6px;
+    margin-top: 14px;
+  }
+  .payment-pills > span {
+    font-size: 8px;
+    padding: 6px 9px;
+  }
+  .guideline-details {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin-top: 21px;
+  }
+  .guideline-details summary {
+    font-size: 11px;
+    min-height: 53px;
+  }
+  .guideline-details details p {
+    font-size: 10px;
+  }
+  .contact-cake-summary dd {
+    font-size: 9px;
+  }
+  .contact-cake-summary dl {
+    gap: 11px;
+  }
+  .contact-cake-summary .text-link {
+    font-size: 8px;
+  }
+  .cake-builder-section .section-heading > p br {
+    display: none;
+  }
+}
+@media (max-width: 370px) {
+  .cake-fieldset legend {
+    font-size: 25px;
+  }
+  .cake-builder-controls {
+    padding-inline: 17px;
+  }
+  .mass-option {
+    font-size: 9px;
+  }
+  .filling-option {
+    font-size: 9px;
+    padding-inline: 7px;
+  }
+  .cake-builder-section .section-heading h2 {
+    font-size: 40px;
+  }
+  .guideline-card {
+    padding-left: 92px;
+  }
+  .guideline-card h3 {
+    font-size: 25px;
+  }
+  .cake-combination h3 {
+    font-size: 31px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cake-drawing {
+    transition: none;
+  }
+}
